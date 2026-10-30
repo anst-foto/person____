@@ -14,7 +14,7 @@ function Input(props) {
         <div>
             <label>{props.header}</label>
             <input type={props.type} value={props.value} onChange={onChange} style={{ borderColor: color }} />
-            {props.error.isError ? <p>{props.error.message}</p> : null}
+            {props.error?.isError ? <p>{props.error.message}</p> : null}
         </div>
     )
 }
