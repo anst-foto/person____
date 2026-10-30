@@ -8,24 +8,27 @@ function UseForm() {
     const [error, setError] = useState({isError:false, message: ""})
 
     const validateAge = (val) => {
-        if (val >= 0) {
-            setError((e) => ({...e, isError: false, message: ""}))
-            return true
-        } else {
-            setError((e) => ({...e, isError: true, message: "Возраст не может быть отрицательным"}))
-            return false
-        }
+    if (val >= 0) {
+        setError({ isError: false, message: "" })
+        return true
+    } else {
+        setError({ isError: true, message: "Возраст не может быть отрицательным" })
+        return false
     }
+}
     const validateName = (val) => val.length > 0
 
 
     function onSubmit(e) {
-        e.preventDefault()
+    e.preventDefault()
 
-        if (error.isError) {
-            console.error(error.message)
-        }
+    if (error.isError) {
+        console.error(error.message)
+        return
     }
+
+    console.log('Отправлено:', { name, age })
+}
 
     return (
         <div>
